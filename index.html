@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muay Equipamentos | A Força do Guerreiro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Roboto', sans-serif; }
+        h1, h2, h3, .font-oswald { font-family: 'Oswald', sans-serif; }
+        .bg-muay-red { background-color: #B91C1C; }
+        .text-muay-red { color: #B91C1C; }
+        .border-muay-red { border-color: #B91C1C; }
+        .hover-muay-red:hover { background-color: #991B1B; }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100">
+
+    <!-- Navegação -->
+    <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-md border-b border-red-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0">
+                    <span class="text-2xl font-oswald font-bold text-white tracking-tighter uppercase">
+                        MUAY <span class="text-muay-red">EQUIPAMENTOS</span>
+                    </span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-gray-300 hover:text-white transition-colors duration-300 font-medium uppercase text-sm tracking-widest">Início</a>
+                        <a href="#produtos" class="text-gray-300 hover:text-white transition-colors duration-300 font-medium uppercase text-sm tracking-widest">Equipamentos</a>
+                        <a href="#sobre" class="text-gray-300 hover:text-white transition-colors duration-300 font-medium uppercase text-sm tracking-widest">Sobre Nós</a>
+                        <a href="#contato" class="text-gray-300 hover:text-white transition-colors duration-300 font-medium uppercase text-sm tracking-widest">Contato</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black border-b border-red-900">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 text-gray-300 hover:bg-red-900 hover:text-white font-medium">Início</a>
+                <a href="#produtos" class="block px-3 py-2 text-gray-300 hover:bg-red-900 hover:text-white font-medium">Equipamentos</a>
+                <a href="#sobre" class="block px-3 py-2 text-gray-300 hover:bg-red-900 hover:text-white font-medium">Sobre Nós</a>
+                <a href="#contato" class="block px-3 py-2 text-gray-300 hover:bg-red-900 hover:text-white font-medium">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1552072092-77a975e766e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Muay Thai Training" class="w-full h-full object-cover opacity-50">
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-black/60"></div>
+        </div>
+        <div class="relative z-10 text-center px-4 max-w-4xl">
+            <h1 class="text-6xl md:text-8xl font-bold text-white mb-6 leading-none uppercase tracking-tighter">
+                Equipe-se para a <br><span class="text-muay-red">Vitória</span>
+            </h1>
+            <p class="text-lg md:text-2xl text-gray-300 mb-10 font-light max-w-2xl mx-auto">
+                Equipamentos de alta performance para lutadores que não aceitam menos que a perfeição. Qualidade tailandesa, resistência máxima.
+            </p>
+            <a href="#produtos" class="bg-muay-red text-white px-12 py-4 rounded-sm text-lg font-bold uppercase tracking-widest transition-all duration-300 transform hover:scale-105 shadow-[0_0_20px_rgba(185,28,28,0.5)] hover-muay-red">
+                Ver Catálogo
+            </a>
+        </div>
+    </section>
+
+    <!-- Categorias / Filtros -->
+    <section id="produtos" class="py-24 px-4 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-5xl font-bold text-white mb-4 uppercase tracking-tight">Arsenal de Combate</h2>
+            <div class="w-24 h-1 bg-muay-red mx-auto"></div>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4 mb-16">
+            <button onclick="filterProducts('todos')" class="filter-btn active bg-muay-red text-white px-8 py-2 rounded-sm transition-all uppercase text-xs font-bold tracking-widest" data-category="todos">Todos</button>
+            <button onclick="filterProducts('protecao')" class="filter-btn bg-gray-800 text-gray-400 border border-gray-700 px-8 py-2 rounded-sm hover:border-muay-red transition-all uppercase text-xs font-bold tracking-widest" data-category="protecao">Proteção</button>
+            <button onclick="filterProducts('treino')" class="filter-btn bg-gray-800 text-gray-400 border border-gray-700 px-8 py-2 rounded-sm hover:border-muay-red transition-all uppercase text-xs font-bold tracking-widest" data-category="treino">Treino</button>
+            <button onclick="filterProducts('vestuario')" class="filter-btn bg-gray-800 text-gray-400 border border-gray-700 px-8 py-2 rounded-sm hover:border-muay-red transition-all uppercase text-xs font-bold tracking-widest" data-category="vestuario">Vestuário</button>
+        </div>
+
+        <!-- Grid de Produtos -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="product-grid">
+            <!-- Produto 1 -->
+            <div class="product-card group bg-gray-800 border border-gray-700 rounded-sm overflow-hidden hover:border-muay-red transition-all duration-300" data-category="protecao">
+                <div class="relative overflow-hidden aspect-square">
+                    <img src="https://images.unsplash.com/photo-1549719386-7557ed27550c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Luvas Muay Thai" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute top-4 left-4 bg-muay-red text-white px-3 py-1 rounded-sm text-xs font-bold uppercase tracking-widest">Elite</div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-oswald font-bold mb-2 uppercase">Luvas Pro-Strike 14oz</h3>
+                    <p class="text-gray-400 mb-6 font-light">Couro legítimo com absorção de impacto superior para treinos intensos.</p>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="text-3xl font-bold text-white">R$ 289,90</span>
+                    </div>
+                    <a href="https://wa.me/5511999999999?text=Olá! Tenho interesse nas Luvas Pro-Strike" target="_blank" class="block text-center w-full bg-muay-red text-white py-3 rounded-sm font-bold uppercase tracking-widest hover-muay-red transition-all">Pedir via WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- Produto 2 -->
+            <div class="product-card group bg-gray-800 border border-gray-700 rounded-sm overflow-hidden hover:border-muay-red transition-all duration-300" data-category="protecao">
+                <div class="relative overflow-hidden aspect-square">
+                    <img src="https://images.unsplash.com/photo-1599058917233-765f69777637?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Caneleiras" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-oswald font-bold mb-2 uppercase">Caneleiras Titanium</h3>
+                    <p class="text-gray-400 mb-6 font-light">Proteção total para canelas e pés, ideal para sparring.</p>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="text-3xl font-bold text-white">R$ 210,00</span>
+                    </div>
+                    <a href="https://wa.me/5511999999999?text=Olá! Tenho interesse nas Caneleiras Titanium" target="_blank" class="block text-center w-full bg-muay-red text-white py-3 rounded-sm font-bold uppercase tracking-widest hover-muay-red transition-all">Pedir via WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- Produto 3 -->
+            <div class="product-card group bg-gray-800 border border-gray-700 rounded-sm overflow-hidden hover:border-muay-red transition-all duration-300" data-category="treino">
+                <div class="relative overflow-hidden aspect-square">
+                    <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Saco de Pancada" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-oswald font-bold mb-2 uppercase">Saco de Pancada 1.2m</h3>
+                    <p class="text-gray-400 mb-6 font-light">Material ultra resistente para chutes e socos potentes.</p>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="text-3xl font-bold text-white">R$ 450,00</span>
+                    </div>
+                    <a href="https://wa.me/5511999999999?text=Olá! Tenho interesse no Saco de Pancadas" target="_blank" class="block text-center w-full bg-muay-red text-white py-3 rounded-sm font-bold uppercase tracking-widest hover-muay-red transition-all">Pedir via WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- Produto 4 -->
+            <div class="product-card group bg-gray-800 border border-gray-700 rounded-sm overflow-hidden hover:border-muay-red transition-all duration-300" data-category="vestuario">
+                <div class="relative overflow-hidden aspect-square">
+                    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Shorts Muay Thai" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-oswald font-bold mb-2 uppercase">Shorts Thai Traditional</h3>
+                    <p class="text-gray-400 mb-6 font-light">Corte clássico para máxima mobilidade nos chutes.</p>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="text-3xl font-bold text-white">R$ 120,00</span>
+                    </div>
+                    <a href="https://wa.me/5511999999999?text=Olá! Tenho interesse nos Shorts Muay Thai" target="_blank" class="block text-center w-full bg-muay-red text-white py-3 rounded-sm font-bold uppercase tracking-widest hover-muay-red transition-all">Pedir via WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- Produto 5 -->
+            <div class="product-card group bg-gray-800 border border-gray-700 rounded-sm overflow-hidden hover:border-muay-red transition-all duration-300" data-category="protecao">
+                <div class="relative overflow-hidden aspect-square">
+                    <img src="https://images.unsplash.com/photo-1552072092-77a975e766e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Bandagem" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-oswald font-bold mb-2 uppercase">Bandagem Elástica 4.5m</h3>
+                    <p class="text-gray-400 mb-6 font-light">Proteção essencial para os punhos e articulações.</p>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="text-3xl font-bold text-white">R$ 45,00</span>
+                    </div>
+                    <a href="https://wa.me/5511999999999?text=Olá! Tenho interesse nas Bandagens" target="_blank" class="block text-center w-full bg-muay-red text-white py-3 rounded-sm font-bold uppercase tracking-widest hover-muay-red transition-all">Pedir via WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- Produto 6 -->
+            <div class="product-card group bg-gray-800 border border-gray-700 rounded-sm overflow-hidden hover:border-muay-red transition-all duration-300" data-category="treino">
+                <div class="relative overflow-hidden aspect-square">
+                    <img src="https://images.unsplash.com/photo-1511886929837-35d6c9778360?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Protetor Bucal" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-oswald font-bold mb-2 uppercase">Protetor Bucal Premium</h3>
+                    <p class="text-gray-400 mb-6 font-light">Molde perfeito para máxima segurança dental.</p>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="text-3xl font-bold text-white">R$ 35,00</span>
+                    </div>
+                    <a href="https://wa.me/5511999999999?text=Olá! Tenho interesse no Protetor Bucal" target="_blank" class="block text-center w-full bg-muay-red text-white py-3 rounded-sm font-bold uppercase tracking-widest hover-muay-red transition-all">Pedir via WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nós -->
+    <section id="sobre" class="py-24 bg-black px-4">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1555597673-b73369b7f747?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Treino Muay Thai" class="rounded-sm shadow-2xl grayscale hover:grayscale-0 transition-all duration-700">
+                <div class="absolute -bottom-6 -right-6 bg-muay-red text-white p-6 rounded-sm hidden lg:block">
+                    <p class="text-4xl font-bold">100%</p>
+                    <p class="text-xs uppercase tracking-widest">Qualidade Combat</p>
+                </div>
+            </div>
+            <div class="space-y-6">
+                <h2 class="text-5xl font-bold text-white uppercase tracking-tight">Espírito de Guerreiro</h2>
+                <div class="w-20 h-1 bg-muay-red"></div>
+                <p class="text-gray-400 leading-relaxed text-lg">
+                    A <span class="text-white font-bold">Muay Equipamentos</span> nasceu da paixão pelas artes marciais. Sabemos que no Muay Thai, cada golpe conta e a proteção correta é a diferença entre a evolução e a lesão.
+                </p>
+                <p class="text-gray-400 leading-relaxed text-lg">
+                    Nossa missão é fornecer equipamentos que aguentem a pressão do ringue e do treino diário, unindo a tradição tailandesa com a tecnologia moderna de materiais.
+                </p>
+                <div class="pt-6">
+                    <a href="#contato" class="inline-block border-2 border-muay-red text-white px-8 py-3 rounded-sm font-bold uppercase tracking-widest hover:bg-muay-red transition-all duration-300">Fale com um Especialista</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato e Rodapé -->
+    <footer id="contato" class="py-20 bg-gray-900 border-t border-red-900 px-4">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="text-center md:text-left">
+                <span class="text-3xl font-oswald font-bold text-white tracking-tighter uppercase block mb-6">
+                    MUAY <span class="text-muay-red">EQUIPAMENTOS</span>
+                </span>
+                <p class="text-gray-400 mb-6">Equipando campeões com a melhor tecnologia em combate do mercado.</p>
+                <div class="flex justify-center md:justify-set space-x-4">
+                    <a href="#" class="text-gray-500 hover:text-muay-red transition-colors">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073C24 6.956 19.822 3 14.67 3 12.075 3 10.079 4.093 8.571 6.02C7.063 4.093 5.067 3 2.47 3C-2.722 3 -7 6.956 -7 12.073C-7 17.19 2.722 21 7.83 21H16.17C11.018 21 6.84 17.19 6.84 12.073C6.84 6.956 11.018 3 16.17 3C21.322 3 25.5 6.956 25.5 12.073C25.5 17.19 21.322 21 16.17 21H7.83"/></svg>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-muay-red transition-colors">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.058-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4 2.209 0 4 1.791 4 4 0 2.21-1.791 4-4 4z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="text-center">
+                <h3 class="text-xl font-oswald font-bold mb-6 uppercase">Sede Principal</h3>
+                <p class="text-gray-400 mb-4">Av. dos Lutadores, 456 - Bairro Combat<br>Cidade, Estado - CEP 00000-000</p>
+                <p class="text-gray-400 font-medium mb-2">Segunda a Sexta: 08h às 20h</p>
+                <p class="text-gray-400 font-medium">Sábado: 08h às 14h</p>
+            </div>
+            <div class="text-center md:text-right">
+                <h3 class="text-xl font-oswald font-bold mb-6 uppercase">Atendimento</h3>
+                <p class="text-gray-400 mb-4">Dúvidas sobre tamanhos ou modelos?</p>
+                <a href="https://wa.me/5511999999999" target="_blank" class="inline-block bg-muay-red text-white px-6 py-3 rounded-sm font-bold uppercase tracking-widest hover-muay-red transition-all shadow-lg">WhatsApp Direto</a>
+            </div>
+        </div>
+        <div class="mt-16 text-center text-gray-600 text-sm">
+            &copy; 2026 Muay Equipamentos. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <script>
+        // Menu Mobile Toggle
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Filtro de Produtos
+        function filterProducts(category) {
+            const cards = document.querySelectorAll('.product-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            // Atualiza botões
+            buttons.forEach(btn => {
+                if(btn.getAttribute('data-category') === category) {
+                    btn.classList.add('bg-muay-red', 'text-white');
+                    btn.classList.remove('bg-gray-800', 'text-gray-400', 'border-gray-700');
+                } else {
+                    btn.classList.remove('bg-muay-red', 'text-white');
+                    btn.classList.add('bg-gray-800', 'text-gray-400', 'border-gray-700');
+                }
+            });
+
+            // Filtra cards
+            cards.forEach(card => {
+                if(category === 'todos' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                    setTimeout(() => card.style.opacity = '1', 10);
+                } else {
+                    card.style.opacity = '0';
+                    setTimeout(() => card.style.display = 'none', 300);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
